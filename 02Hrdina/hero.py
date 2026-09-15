@@ -13,10 +13,9 @@ class Hero:
     def KdeJsi(self):
         return f"jsem v Lokaci zvaném {self.lokace}."
 
-    def PresunSe(self, nLokace: str = "site A"):
-        staraLokace = self.lokace
+    def PresunSe(self, nLokace: str):
         self.lokace = nLokace
-        return f"přesouvám se z lokace {staraLokace} na {self.lokace}"
+        return f"přesouvám se z lokace na {self.lokace}"
 
 
 hero = Hero("Láďa", 27)
@@ -26,4 +25,4 @@ print(hero.lokace)
 print(hero.pokrik())
 print(hero.predstavSe())
 print(hero.KdeJsi())
-print(hero.PresunSe())
+print(hero.PresunSe("site A"))
