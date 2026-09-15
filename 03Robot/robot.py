@@ -15,7 +15,7 @@ class Robot:
 
     def zadejUkol(self, nUkol: str):
         self.ukol = nUkol
-        return f"tvuj nový úkol je {self.ukol} "
+        return f"Tvuj nový úkol je {self.ukol} "
 
 
 robot = Robot("BíPuBíp", 80, "umýt nádobí")
