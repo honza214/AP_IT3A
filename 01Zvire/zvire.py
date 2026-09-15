@@ -7,15 +7,15 @@ class Zvire:
     def zvuk(self):
         return "???"
     
-    def predstavSe(self):
-        return f"Jmenuji se (self.jmeno), a je mi (self.vek) let."
-    
-    def Kdejsi(self):
-        return f"jsem v místě zvaném (self.misto)."
-    
-    def JdiNa(self, nMisto:str):
-        self.misto = nMisto
-        return f"Přesunul jsem se na (self.nMisto) (self.Kdejsi)"
+def predstavSe(self):
+    return f"Jmenuji se {self.jmeno}, a je mi {self.vek} let."
+
+def Kdejsi(self):
+    return f"jsem v místě zvaném {self.misto}."
+
+def JdiNa(self, nMisto: str):
+    self.misto = nMisto
+    return f"Přesunul jsem se na {nMisto}, {self.Kdejsi()}"
 
 
 zvire = Zvire("Tonda", 67)
