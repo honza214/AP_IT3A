@@ -15,6 +15,10 @@ class Robot:
             self.baterie = 100
         self.baterie = 100
         return "Baterie je nyní na 100 %"
+    
+    def stav_baterie(self):
+        return f"Moj baterie je nyní: {self.baterie} %"
+
 
     
 #robot = Robot("Bobot", 80)
@@ -32,6 +36,7 @@ class Kvadrokoptera(Robot):
             return f"{self.oznaceni} odletěl do své max výšky: {self.max_vyska} a pořídil snímky a nyní má baterii: {self.baterie} %"
         else:
             return f"{self.oznaceni} Odmítnul vzlétnout"
+        
 
         
 class PruzkumyPasak(Robot):
@@ -45,8 +50,7 @@ class PruzkumyPasak(Robot):
             return "Skenuju teplo."
         else:
             return "Nemá termokameru."
-        
-        
+
 
 kvadrokoptera = Kvadrokoptera("Bobot", 80, 175)
 pruzkumypasak = PruzkumyPasak("Hugo", 40, True)
@@ -54,5 +58,6 @@ pruzkumypasak = PruzkumyPasak("Hugo", 40, True)
 seznam = [kvadrokoptera, pruzkumypasak]
 for zarizeni in seznam:
     print(zarizeni.proved_misi())
+    print(zarizeni.stav_baterie())
     print(zarizeni.nabij_baterii())
     print("-" * 40)
