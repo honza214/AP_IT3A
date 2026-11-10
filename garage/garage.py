@@ -68,8 +68,50 @@ class Garage:
         self.cars.append(car)
         return f"Do garáže {self.name} bylo přidáno auto {car.model}"
     
-garage = Garage("Baxtrix")
+    def showCars(self):
+        if len(self.cars) == 0:
+            print(f"V garáži {self.name} není žádné auto!")
+        else:
+            print(f"Auta v garáži: {self.name}")
+            for car in self.cars:
+                print("-->", car)
+
+    def oldestCar(self):
+        if len(self.cars) == 0:
+            return None
+        theOldest = min(self.cars, key = lambda a: a.year)
+        return theOldest
+        
+    def avgFuel(self):
+        if len(self.cars) == 0:
+            return 0
+        return sum(car.fuel for car in self.cars)/len(self.cars)          #len je délka
+    
+    
+            
+    
+garage = Garage("Housebox")
+garage.showCars()
+print("-" * 40)
 print(garage.addCar(car1))
 print(garage.addCar(car2))
 print(garage.addCar(car3))
 print("-" * 40)
+garage.showCars()
+print("----Nejstarší auto----")
+oldest = garage.oldestCar()
+if oldest:
+    print(f"Nejstarší auto v garáži je {oldest.brand} {oldest.model} {oldest.year}")
+
+print("----Průměrná hodnota paliva----")
+print(f"{garage.avgFuel():.1f} %")       #:.1f značí desetinná místa
+
+print("----Jízda specifického auta v garáži----")
+print(garage.cars[1].move())
+print("----Jízda všech aut v garáži----")
+for car in garage.cars:
+    print(car.move())
+
+print("----hromadná kontrola STK----")
+for car in garage.cars:
+    print(car.STK())
