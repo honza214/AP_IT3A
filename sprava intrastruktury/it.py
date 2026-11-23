@@ -56,7 +56,20 @@ class ServerRoom:
     
     def avgStorage(self):
         return sum(server.storageFree for server in self.servers) / len(self.servers)
-
+    
+    def fullServers(self, limit = 30): 
+        result = []
+        for server in self.servers:
+            if server.storageFree < limit:
+                result.append(server)
+        return result
+    
+    def serversForReplacement(self):
+        result = []
+        for server in self.servers:
+            if server.warrantyYear > datetime.now().year:
+                result.append(server)
+        return result
 
 
 server = Server("Web-Main", "Ubuntu Linux", 2018, 2028)
@@ -74,3 +87,11 @@ print(f"Nejstarší server: {oldest}")
 print("-" * 50)
 avg = room.avgStorage()
 print(f"Průměrné volné místo: {avg}%")
+print("-" * 50)
+print("Plné servery:")
+for s in room.fullServers():
+    print(f"-->{s}")
+    print("-" * 50)
+    print("servery k výměně:")
+for s in room.serversForReplacement():
+    print(f"-->{s}")
